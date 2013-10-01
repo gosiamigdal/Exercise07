@@ -21,14 +21,17 @@ def same_rating(number):
             print key
 
 
-
-if user_input.isdigit():
-    same_rating(user_input)
-elif user_input in restaurants:
-    get_rating(user_input)
-else:
-    print "I do not understand. Please, enter restaurant name or rating:"
-    user_input = raw_input()
+while user_input != "q":
+    if user_input.isdigit():
+        if int(user_input) in range(1,6):
+            same_rating(user_input)
+        else:
+            print "Restaurants are rated 1 to 5."
+    elif user_input in restaurants:
+        get_rating(user_input)
+    else:
+        print "I do not understand. Please, enter restaurant name or rating:"
+    user_input = raw_input("Type another one or 'q' to quit.")
 
 
 f.close()
